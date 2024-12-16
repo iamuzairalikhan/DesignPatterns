@@ -2,43 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Represents the product to be built
+
+// The complex object to be built
 public class BuilderCharacter
 {
-    public string Name { get; private set; }
-    public int Health { get; private set; }
-    public float Speed { get; private set; }
-    public int Armor { get; private set; }
+    public string Name { get; private set; } // Character's name
+    public int Health { get; private set; } // Character's health
+    public int Strength { get; private set; } // Character's strength
+    public float Speed { get; private set; } // Character's speed
 
-    // Set methods for each property
-    public void SetName(string name)
+    // Private constructor to enforce creation through the Builder
+    private BuilderCharacter() { }
+
+    // Nested Builder class
+    public class Builder
     {
-        Name = name;
+        private BuilderCharacter _character = new BuilderCharacter();
+
+        // Set the name of the character
+        public Builder SetName(string name)
+        {
+            _character.Name = name;
+            return this; // Return the Builder for method chaining
+        }
+
+        // Set the health of the character
+        public Builder SetHealth(int health)
+        {
+            _character.Health = health;
+            return this;
+        }
+
+        // Set the strength of the character
+        public Builder SetStrength(int strength)
+        {
+            _character.Strength = strength;
+            return this;
+        }
+
+        // Set the speed of the character
+        public Builder SetSpeed(float speed)
+        {
+            _character.Speed = speed;
+            return this;
+        }
+
+        // Build and return the fully configured Character object
+        public BuilderCharacter Build()
+        {
+            return _character;
+        }
     }
 
-    public void SetHealth(int health)
-    {
-        Health = health;
-    }
-
-    public void SetSpeed(float speed)
-    {
-        Speed = speed;
-    }
-
-    public void SetArmor(int armor)
-    {
-        Armor = armor;
-    }
-
-    // Display the character's details
+    // Method to display character's stats (for testing)
     public void DisplayStats()
     {
-        Debug.Log($"Character Name: {Name}, Health: {Health}, Speed: {Speed}, Armor: {Armor}");
+        Debug.Log($"Name: {Name}, Health: {Health}, Strength: {Strength}, Speed: {Speed}");
     }
 }
-
-
-
-
 
