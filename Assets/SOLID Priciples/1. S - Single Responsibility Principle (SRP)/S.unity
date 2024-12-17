@@ -605,9 +605,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Single Responsibility Principle (SRP) applied in a Unity context, where
-    we separate the responsibilities of managing a player's health and managing their
-    inventory into different scripts.
+  m_text: 'Single Responsibility Principle (SRP) applied in a Unity context, where
+    we separate the responsibilities of managing a player''s health and managing
+    their inventory into different scripts.
+
+
+    (Play and check console for output)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
